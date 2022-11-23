@@ -5,9 +5,10 @@ const message = document.querySelector(`[name="message"]`);
 const submit = document.querySelector(`[type="submit"]`);
 
 const emailValue = email.value;
+savedValue = [];
 
 const saveInformations = event => {
-  const savedValue = [email.value, message.value];
+  savedValue = [email.value, message.value];
   localStorage.setItem('feedback-form-state', JSON.stringify(savedValue));
 };
 
@@ -20,11 +21,11 @@ if (localStorage.length !== 0) {
 }
 
 const clearForm = event => {
+  savedValue = [email.value, message.value];
   event.preventDefault();
-  const sentValue = localStorage.getItem('feedback-form-state');
+  console.log(savedValue);
   localStorage.removeItem('feedback-form-state');
   form.reset();
-  console.log(sentValue);
 };
 
 submit.addEventListener('click', clearForm);
