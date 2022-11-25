@@ -14,7 +14,7 @@ const saveInformations = event => {
 
 form.addEventListener('keyup', throttle(saveInformations, 500));
 
-if (localStorage.length !== null) {
+if (localStorage.length !== 0) {
   const loadValue = localStorage.getItem('feedback-form-state');
   email.value = JSON.parse(loadValue)[0];
   message.value = JSON.parse(loadValue)[1];
