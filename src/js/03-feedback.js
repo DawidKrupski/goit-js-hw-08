@@ -5,7 +5,7 @@ const message = document.querySelector(`[name="message"]`);
 const submit = document.querySelector(`[type="submit"]`);
 
 const emailValue = email.value;
-savedValue = [];
+savedValue = [""];
 
 const saveInformations = event => {
   savedValue = [email.value, message.value];
