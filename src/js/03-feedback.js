@@ -14,6 +14,8 @@ const saveInformations = event => {
 
 form.addEventListener('keyup', throttle(saveInformations, 500));
 
+console.log(localStorage.length);
+
 if (localStorage.length !== 0) {
   const loadValue = localStorage.getItem('feedback-form-state');
   if (loadValue[0].length !== 0) {
