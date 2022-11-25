@@ -5,7 +5,7 @@ const message = document.querySelector(`[name="message"]`);
 const submit = document.querySelector(`[type="submit"]`);
 
 const emailValue = email.value;
-let savedValue = [];
+let savedValue = [email.value, message.value];
 
 const saveInformations = event => {
   savedValue = [email.value, message.value];
@@ -14,16 +14,10 @@ const saveInformations = event => {
 
 form.addEventListener('keyup', throttle(saveInformations, 500));
 
-console.log(localStorage.length);
-
-if (localStorage.length !== 0) {
+if (localStorage.getItem('feedback-form-state') !== null) {
   const loadValue = localStorage.getItem('feedback-form-state');
-  if (loadValue[0].length !== 0) {
-    email.value = JSON.parse(loadValue)[0];
-  }
-  if (loadValue[1].length !== 0) {
-    message.value = JSON.parse(loadValue)[1];
-  }
+  email.value = JSON.parse(loadValue)[0];
+  message.value = JSON.parse(loadValue)[1];
 }
 
 const clearForm = event => {
